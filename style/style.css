@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 2em;
+  background-color: rgb(180, 180, 180);
+  display: flex;
+  justify-content: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  padding: 0 2em 1.5em;
+  background-color: burlywood;
+  border-style: double;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#zaIspis {
+  width: 100%;
+}
+
+.resultWrapper {
+  margin-top: 15px;
+  padding: 0 2em 1.5em;
+  background-color: burlywood;
+  border-style: double;
+}
+
+.searchField {
+  margin: auto;
+  position: relative;
+}
+
+input {
+  align-self: center;
+  padding: 0.5em;
+  width: 40vw;
+  min-width: 200px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+#voiceComBtn {
+  border: none;
+}
+
+.microphone::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(41, 0, 0);
+  content: "\f131";
+  position: absolute;
+  top: 7px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.animateMic::after {
+  animation: recording 2990ms linear 1 backwards;
+}
+
+h1 {
+  text-align: center;
+  padding: 1em 0;
+  font-size: 30px;
+}
+
+#container {
+  width: 40vw;
+  min-height: auto;
+  background-color: rgb(228, 227, 227);
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 4px 4px 5px rgb(59, 59, 59);
+  margin: 7px auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+h3 {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px rgb(99, 99, 98);
+  padding: 0.5em 2em;
+  font-size: 25px;
+  text-align: center;
+}
+
+em {
+  color: rgb(75, 15, 0);
+  text-shadow: 1px 1px 1px rgb(75, 15, 0);
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 145);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: rgb(143, 0, 161);
+}
+
+.btn {
+  text-decoration: none;
+  color: rgb(211, 211, 211);
+  background-color: rgb(63, 63, 63);
+  font-size: 15px;
+  text-shadow: 2px 1px 2px rgb(141, 141, 141);
+  padding: 0.5em 1em;
+  margin: 1em auto;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  color: rgb(63, 63, 63);
+  background-color: rgb(211, 211, 211);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgb(65, 65, 65);
+  cursor: pointer;
+}
+
+.toTopBtn {
+  visibility: hidden;
+  border: none;
+  background-color: transparent;
+}
+
+.toTopBtn::before,
+.toTopBtn::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 50px;
+  color: rgb(41, 0, 0);
+  content: "\f077";
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  right: 5vw;
+}
+.toTopBtn::before {
+  z-index: 0;
+}
+.toTopBtn::after {
+  z-index: 1;
+}
+
+.toTopBtn:hover::before {
+  animation: toTopBtnAnimation 900ms ease-in infinite;
+}
+
+span {
+  color: rgb(136, 0, 0);
+}
+
+/*KEYFRAMES*/
+@keyframes recording {
+  0% {
+    content: "\f131";
+  }
+  0.1% {
+    content: "\f130";
+    padding: 0 0.3em 0.1em 0;
+    color: green;
+  }
+  25% {
+    color: rgb(56, 189, 56);
+  }
+  50% {
+    color: green;
+  }
+  75% {
+    color: rgb(56, 189, 56);
+  }
+  100% {
+    color: rgb(24, 138, 24);
+    padding: 0 0.3em 0.1em 0;
+    content: "\f130";
+  }
+}
+
+@keyframes toTopBtnAnimation {
+  0% {
+    font-size: 50px;
+    top: 50%;
+    color: rgb(68, 67, 67);
+  }
+  80% {
+    font-size: 40px;
+    color: rgb(180, 180, 180);
+    top: 48%;
+    right: 5.45vw;
+    height: 50px;
+  }
+  100% {
+    color: rgb(180, 180, 180);
+  }
+}
+
+/*mediaqueries*/
+@media only screen and (max-width: 800px) {
+  #container {
+    min-width: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #container {
+    min-width: 90%;
+    padding: 0.5 1em;
+  }
+  h3 {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #container {
+    min-width: 90%;
+    padding: 0.5 1em;
+  }
+  h3 {
+    font-size: 17px;
+    text-shadow: 1px 1px 1px rgb(65, 65, 65);
+  }
+}
